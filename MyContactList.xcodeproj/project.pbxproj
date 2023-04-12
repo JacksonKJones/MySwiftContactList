@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0FF0A3E329E648B80025B30A /* ContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF0A3E229E648B80025B30A /* ContactsTableViewController.swift */; };
 		8E06EDD729DD10B000C1B7D0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E06EDD629DD10B000C1B7D0 /* Constants.swift */; };
 		8E06EDDA29DD13D200C1B7D0 /* MyContactListModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8E06EDD829DD13D200C1B7D0 /* MyContactListModel.xcdatamodeld */; };
 		8E06EDDC29DD1A4400C1B7D0 /* DateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E06EDDB29DD1A4400C1B7D0 /* DateViewController.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0FF0A3E229E648B80025B30A /* ContactsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableViewController.swift; sourceTree = "<group>"; };
 		8E06EDD629DD10B000C1B7D0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8E06EDD929DD13D200C1B7D0 /* MyContactListModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyContactListModel.xcdatamodel; sourceTree = "<group>"; };
 		8E06EDDB29DD1A4400C1B7D0 /* DateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateViewController.swift; sourceTree = "<group>"; };
@@ -52,6 +54,7 @@
 		8E96D14229D3BF1400A95627 = {
 			isa = PBXGroup;
 			children = (
+				0FF0A3E229E648B80025B30A /* ContactsTableViewController.swift */,
 				8E96D14D29D3BF1400A95627 /* MyContactList */,
 				8E96D14C29D3BF1400A95627 /* Products */,
 			);
@@ -158,6 +161,7 @@
 			files = (
 				8E96D15329D3BF1400A95627 /* ViewController.swift in Sources */,
 				8E96D16729D3C87B00A95627 /* MapViewController.swift in Sources */,
+				0FF0A3E329E648B80025B30A /* ContactsTableViewController.swift in Sources */,
 				8E96D16329D3C84600A95627 /* ContactsViewController.swift in Sources */,
 				8E96D14F29D3BF1400A95627 /* AppDelegate.swift in Sources */,
 				8E96D16529D3C86900A95627 /* SettingsViewController.swift in Sources */,

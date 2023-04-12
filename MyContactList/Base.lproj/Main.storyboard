@@ -323,14 +323,71 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="bQf-Ha-vr0" kind="relationship" relationship="rootViewController" id="eOk-Zw-mhr"/>
+                        <segue destination="TRL-OX-6lo" kind="relationship" relationship="rootViewController" id="vJe-k7-Udk"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0TH-M9-EYU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2019.0839694656488" y="-706.33802816901414"/>
         </scene>
+        <!--Contacts Table View Controller-->
+        <scene sceneID="mh9-MS-Tj7">
+            <objects>
+                <tableViewController id="TRL-OX-6lo" customClass="ContactsTableViewController" customModule="MyContactList" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="vs0-cv-0xP">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactsCell" textLabel="FD1-Dm-jHL" detailTextLabel="sld-uy-mzG" style="IBUITableViewCellStyleSubtitle" id="JCy-jS-W3q">
+                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JCy-jS-W3q" id="isz-Ww-r7w">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Superman from Metropolis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FD1-Dm-jHL">
+                                            <rect key="frame" x="20" y="6.0000000000000009" width="150.66666666666666" height="14.333333333333334"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Born on: April 18, 1938" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sld-uy-mzG">
+                                            <rect key="frame" x="20" y="22.333333333333336" width="128.66666666666666" height="14.333333333333334"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="bQf-Ha-vr0" kind="show" identifier="EditContact" trigger="accessoryAction" id="EZ8-QO-Mnx"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="TRL-OX-6lo" id="X1I-OQ-V9l"/>
+                            <outlet property="delegate" destination="TRL-OX-6lo" id="NDO-LZ-wuC"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="djX-OZ-Pt7">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="S9S-ov-qIQ">
+                            <connections>
+                                <segue destination="bQf-Ha-vr0" kind="show" identifier="AddContact" id="Ied-Cj-M31"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bex-hB-qYP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1540" y="-1350"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="EZ8-QO-Mnx"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="contact" width="40" height="40"/>
         <image name="maps-and-flags" width="40" height="40"/>
