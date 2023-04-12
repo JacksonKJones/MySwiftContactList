@@ -25,45 +25,35 @@ class ContactsViewController: UIViewController, UITextFieldDelegate, DateControl
     @IBOutlet weak var lblBirthdate: UILabel!
     @IBOutlet weak var btnChange: UIButton!
     
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        //self.registerKeyboardNotifications()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.unregisterKeyboardNotifications()
-    }
-    
-    /*
-    func registerKeyboardNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(ContactsViewController.keyboardDidShow(notification:)), name: NSNotification.Name.UIResponder.keyboardDidShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(ContactsViewController.keyboardWillHide(notification:)), name: NSNotification.Name.UIResponder.keyboardWillHideNotification, object: nil)
-    }
-    */
-    func unregisterKeyboardNotifications() {
-        NotificationCenter.default.removeObserver(self)
-    }
-    
-    func keyboardDidShow(notification: NSNotification) {
-        let userInfo: NSDictionary = notification.userInfo! as NSDictionary
-        let keyboardInfo = userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue
-        let keyboardSize = keyboardInfo.cgRectValue.size
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        changeEditMode(self)
+         
+        let textFields: [UITextField] = [txtName, txtAddress, txtCity, txtState, txtZipcode, txtPhone, txtCell, txtEmail]
+        for textField in textFields {
+            textField.addTarget(self, action: #selector(UITextFieldDelegate.textFieldShouldEndEditing(_:)), for: UIControl.Event.editingDidEnd)
+        }
+        if currentContact != nil {
+            txtName.text = currentContact!.contactName
+            txtAddress.text = currentContact!.streetAddress
+            txtCity.text = currentContact!.city
+            txtState.text = currentContact!.state
+            txtZipcode.text = currentContact!.zipCode
+            txtPhone.text = currentContact!.phoneNumber
+            txtCell.text = currentContact!.cellNumber
+            txtEmail.text = currentContact!.email
+            let formatter = DateFormatter()
+            formatter.dateStyle = .short
+            if currentContact!.birthday != nil {
+                lblBirthdate.text = formatter.string(from: currentContact!.birthday as! Date)
+            }
+        }
+        changeEditMode(self)
         
-        var contentInset = self.scrollView.contentInset
-        contentInset.bottom = keyboardSize.height
-        
-        self.scrollView.contentInset = contentInset
-        self.scrollView.scrollIndicatorInsets = contentInset
-    }
-    
-    func keyboardWillHide(notification: NSNotification) {
-        var contentInset = self.scrollView.contentInset
-        contentInset.bottom = 0
-        
-        self.scrollView.contentInset = contentInset
-        self.scrollView.scrollIndicatorInsets = UIEdgeInsets.zero
+        let textFields2: [UITextField] = [txtName, txtAddress, txtCity, txtState, txtZipcode, txtPhone, txtCell, txtEmail]
+        for textField in textFields2 {
+            textField.addTarget(self, action: #selector(UITextFieldDelegate.textFieldShouldEndEditing(_:)), for: UIControl.Event.editingDidEnd)
+        }
     }
     
     @objc func saveContact() {
@@ -74,8 +64,8 @@ class ContactsViewController: UIViewController, UITextFieldDelegate, DateControl
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        self.didReceiveMemoryWarning()
     }
-    
     
     @IBAction func changeEditMode(_ sender: Any) {
         let textFields: [UITextField] = [txtName, txtAddress, txtCity, txtState, txtZipcode, txtPhone, txtCell, txtEmail]
@@ -85,7 +75,7 @@ class ContactsViewController: UIViewController, UITextFieldDelegate, DateControl
                 textField.borderStyle = UITextField.BorderStyle.none
             }
             btnChange.isHidden = true
-            navigationItem.rightBarButtonItem = nil
+            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(self.saveContact))
         }
         else if sgmtEditMode.selectedSegmentIndex == 1 {
             for textField in textFields {
@@ -93,19 +83,6 @@ class ContactsViewController: UIViewController, UITextFieldDelegate, DateControl
                 textField.borderStyle = UITextField.BorderStyle.roundedRect
             }
             btnChange.isHidden = false
-            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(self.saveContact))
-        }
-    }
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        self.changeEditMode(self)
-        
-        let textFields: [UITextField] = [txtName, txtAddress, txtCity, txtState, txtZipcode, txtPhone, txtCell, txtEmail]
-        for textfield in textFields {
-            textfield.addTarget(self, action: #selector(UITextFieldDelegate.textFieldShouldEndEditing(_:)), for: UIControl.Event.editingDidEnd)
         }
     }
     
